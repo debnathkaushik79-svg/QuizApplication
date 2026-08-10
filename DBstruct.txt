@@ -1,0 +1,711 @@
+CREATE DATABASE QuizApplication;
+
+USE QuizApplication;
+
+
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Questions (
+    question_id INT AUTO_INCREMENT PRIMARY KEY,
+    topic VARCHAR(30),
+    question TEXT,
+    option1 VARCHAR(255),
+    option2 VARCHAR(255),
+    option3 VARCHAR(255),
+    option4 VARCHAR(255),
+    answer VARCHAR(255)
+);
+
+
+CREATE TABLE Scores (
+    score_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    topic VARCHAR(30),
+    score INT,
+    total INT,
+    percentage DOUBLE,
+    quiz_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES Users(user_id)
+);
+
+
+INSERT INTO Questions(topic,question,option1,option2,option3,option4,answer)VALUES
+('java',
+'Which keyword creates an object?',
+'new',
+'class',
+'object',
+'create',
+'new');
+
+
+INSERT INTO Questions
+(topic, question, option1, option2, option3, option4, answer)
+VALUES
+(
+'java',
+'Which loop executes at least once?',
+'for',
+'while',
+'do-while',
+'foreach',
+'do-while'
+),
+(
+'java',
+'Which package contains Swing classes?',
+'java.io',
+'java.util',
+'javax.swing',
+'java.awt',
+'javax.swing'
+),
+(
+'java',
+'Which method is the entry point of a Java program?',
+'start()',
+'run()',
+'main()',
+'init()',
+'main()'
+),
+(
+'java',
+'Which keyword is used for inheritance?',
+'implement',
+'inherits',
+'extends',
+'super',
+'extends'
+),
+(
+'java',
+'Which of the following is not a primitive data type?',
+'int',
+'float',
+'String',
+'char',
+'String'
+),
+(
+'java',
+'Which operator is used to compare two values?',
+'=',
+'==',
+'!=',
+':=',
+'=='
+),
+(
+'java',
+'Which keyword is used to stop a loop?',
+'exit',
+'break',
+'stop',
+'return',
+'break'
+),
+(
+'java',
+'Which loop is best when the number of iterations is known?',
+'while',
+'do-while',
+'for',
+'foreach',
+'for'
+),
+(
+'java',
+'Which keyword is used to define a constant?',
+'const',
+'constant',
+'final',
+'static',
+'final'
+),
+(
+'java',
+'Which class is used to take user input from the keyboard?',
+'Reader',
+'Scanner',
+'Input',
+'Console',
+'Scanner'
+),
+(
+'java',
+'Which package contains the Scanner class?',
+'java.io',
+'java.lang',
+'java.util',
+'javax.swing',
+'java.util'
+),
+(
+'java',
+'Which access modifier makes members accessible only within the same class?',
+'public',
+'protected',
+'default',
+'private',
+'private'
+),
+(
+'java',
+'Which exception occurs when dividing an integer by zero?',
+'IOException',
+'ArithmeticException',
+'NullPointerException',
+'ArrayIndexOutOfBoundsException',
+'ArithmeticException'
+),
+(
+'java',
+'Which keyword is used to handle exceptions?',
+'throw',
+'throws',
+'try',
+'catch',
+'try'
+);
+
+
+
+
+
+INSERT INTO Questions
+(topic, question, option1, option2, option3, option4, answer)
+VALUES
+(
+'dsa',
+'Which data structure follows the FIFO principle?',
+'Stack',
+'Queue',
+'Tree',
+'Array',
+'Queue'
+),
+(
+'dsa',
+'Which data structure follows the LIFO principle?',
+'Queue',
+'Linked List',
+'Stack',
+'Tree',
+'Stack'
+),
+(
+'dsa',
+'What is the time complexity of Binary Search in the worst case?',
+'O(n)',
+'O(log n)',
+'O(n log n)',
+'O(1)',
+'O(log n)'
+),
+(
+'dsa',
+'Which sorting algorithm has the best average-case time complexity?',
+'Bubble Sort',
+'Selection Sort',
+'Merge Sort',
+'Insertion Sort',
+'Merge Sort'
+),
+(
+'dsa',
+'Which data structure is mainly used for implementing recursion?',
+'Queue',
+'Stack',
+'Heap',
+'Graph',
+'Stack'
+),
+(
+'dsa',
+'Which traversal visits the root node first?',
+'Inorder',
+'Postorder',
+'Preorder',
+'Level Order',
+'Preorder'
+),
+(
+'dsa',
+'Which data structure is used for Breadth First Search (BFS)?',
+'Stack',
+'Queue',
+'Array',
+'Linked List',
+'Queue'
+),
+(
+'dsa',
+'Which data structure is used for Depth First Search (DFS)?',
+'Queue',
+'Stack',
+'Heap',
+'Tree',
+'Stack'
+),
+(
+'dsa',
+'Which sorting algorithm repeatedly swaps adjacent elements?',
+'Merge Sort',
+'Quick Sort',
+'Bubble Sort',
+'Heap Sort',
+'Bubble Sort'
+),
+(
+'dsa',
+'What is the worst-case time complexity of Bubble Sort?',
+'O(log n)',
+'O(n)',
+'O(n²)',
+'O(n log n)',
+'O(n²)'
+),
+(
+'dsa',
+'Which data structure stores elements in key-value pairs?',
+'Array',
+'Stack',
+'HashMap',
+'Queue',
+'HashMap'
+),
+(
+'dsa',
+'Which tree traversal gives the elements in sorted order for a Binary Search Tree?',
+'Preorder',
+'Postorder',
+'Inorder',
+'Level Order',
+'Inorder'
+),
+(
+'dsa',
+'Which data structure is used to represent hierarchical data?',
+'Queue',
+'Stack',
+'Tree',
+'Array',
+'Tree'
+),
+(
+'dsa',
+'Which sorting algorithm selects the smallest element in each pass?',
+'Bubble Sort',
+'Selection Sort',
+'Merge Sort',
+'Quick Sort',
+'Selection Sort'
+),
+(
+'dsa',
+'Which searching algorithm requires the array to be sorted?',
+'Linear Search',
+'Binary Search',
+'Jump Search',
+'Hash Search',
+'Binary Search'
+);
+
+
+
+INSERT INTO Questions
+(topic, question, option1, option2, option3, option4, answer)
+VALUES
+(
+'os',
+'Which component is known as the brain of the computer?',
+'RAM',
+'CPU',
+'Hard Disk',
+'Motherboard',
+'CPU'
+),
+(
+'os',
+'Which of the following is an Operating System?',
+'MS Word',
+'Windows',
+'Google Chrome',
+'MS Excel',
+'Windows'
+),
+(
+'os',
+'Which scheduling algorithm follows the First Come First Serve principle?',
+'Round Robin',
+'SJF',
+'FCFS',
+'Priority',
+'FCFS'
+),
+(
+'os',
+'Which scheduling algorithm gives each process a fixed time slice?',
+'FCFS',
+'Round Robin',
+'SJF',
+'Priority',
+'Round Robin'
+),
+(
+'os',
+'What is the main purpose of an Operating System?',
+'Compile programs',
+'Manage computer resources',
+'Create hardware',
+'Browse the internet',
+'Manage computer resources'
+),
+(
+'os',
+'Which memory is volatile?',
+'ROM',
+'Hard Disk',
+'RAM',
+'SSD',
+'RAM'
+),
+(
+'os',
+'Which memory is non-volatile?',
+'RAM',
+'Cache',
+'ROM',
+'Registers',
+'ROM'
+),
+(
+'os',
+'Which scheduling algorithm selects the shortest job first?',
+'FCFS',
+'Round Robin',
+'SJF',
+'Priority',
+'SJF'
+),
+(
+'os',
+'Deadlock occurs when processes are?',
+'Executing normally',
+'Waiting indefinitely for resources',
+'Terminated',
+'Running in parallel',
+'Waiting indefinitely for resources'
+),
+(
+'os',
+'Which of the following is not a CPU scheduling algorithm?',
+'FCFS',
+'SJF',
+'Round Robin',
+'Bubble Sort',
+'Bubble Sort'
+),
+(
+'os',
+'Which technique allows multiple programs to reside in memory simultaneously?',
+'Paging',
+'Multiprogramming',
+'Formatting',
+'Compiling',
+'Multiprogramming'
+),
+(
+'os',
+'Which memory management technique divides memory into fixed-size blocks?',
+'Segmentation',
+'Paging',
+'Swapping',
+'Compaction',
+'Paging'
+),
+(
+'os',
+'Which system call is used to create a new process in Unix/Linux?',
+'fork()',
+'exec()',
+'wait()',
+'kill()',
+'fork()'
+),
+(
+'os',
+'Which of the following is an example of real-time operating system?',
+'Windows 11',
+'Linux Ubuntu',
+'VxWorks',
+'MS-DOS',
+'VxWorks'
+),
+(
+'os',
+'Which scheduling algorithm may cause starvation?',
+'Round Robin',
+'FCFS',
+'SJF',
+'FIFO',
+'SJF'
+),
+(
+'os',
+'Which device management technique allows the CPU to continue working while I/O is performed?',
+'Polling',
+'Interrupt',
+'DMA',
+'Buffering',
+'DMA'
+),
+(
+'os',
+'Which of the following is a secondary storage device?',
+'RAM',
+'Cache',
+'Hard Disk',
+'Register',
+'Hard Disk'
+),
+(
+'os',
+'Which page replacement algorithm replaces the page that has not been used for the longest time?',
+'FIFO',
+'LRU',
+'Optimal',
+'Clock',
+'LRU'
+),
+(
+'os',
+'What is the full form of PCB in Operating System?',
+'Process Control Block',
+'Program Control Buffer',
+'Process Communication Buffer',
+'Primary Control Block',
+'Process Control Block'
+),
+(
+'os',
+'Which of the following is a necessary condition for deadlock?',
+'Mutual Exclusion',
+'Multitasking',
+'Interrupt Handling',
+'Caching',
+'Mutual Exclusion'
+);
+
+
+INSERT INTO Questions
+(topic, question, option1, option2, option3, option4, answer)
+VALUES
+(
+'cn',
+'What does LAN stand for?',
+'Local Area Network',
+'Large Area Network',
+'Long Area Network',
+'Limited Area Network',
+'Local Area Network'
+),
+(
+'cn',
+'Which device connects different networks together?',
+'Hub',
+'Switch',
+'Router',
+'Repeater',
+'Router'
+),
+(
+'cn',
+'Which protocol is used to browse websites?',
+'FTP',
+'HTTP',
+'SMTP',
+'TCP',
+'HTTP'
+),
+(
+'cn',
+'What is the full form of IP?',
+'Internet Protocol',
+'Internal Protocol',
+'Internet Process',
+'Internal Process',
+'Internet Protocol'
+),
+(
+'cn',
+'Which layer of the OSI model is responsible for routing?',
+'Transport Layer',
+'Network Layer',
+'Data Link Layer',
+'Application Layer',
+'Network Layer'
+),
+(
+'cn',
+'Which protocol is used to transfer files over a network?',
+'FTP',
+'HTTP',
+'SMTP',
+'Telnet',
+'FTP'
+),
+(
+'cn',
+'Which device forwards data based on MAC addresses?',
+'Router',
+'Hub',
+'Switch',
+'Gateway',
+'Switch'
+),
+(
+'cn',
+'How many layers are there in the OSI model?',
+'5',
+'6',
+'7',
+'8',
+'7'
+),
+(
+'cn',
+'Which protocol is used to send emails?',
+'HTTP',
+'FTP',
+'SMTP',
+'POP3',
+'SMTP'
+),
+(
+'cn',
+'Which protocol is used to receive emails?',
+'SMTP',
+'FTP',
+'POP3',
+'ARP',
+'POP3'
+),
+(
+'cn',
+'Which topology connects every device to a central hub or switch?',
+'Bus',
+'Ring',
+'Star',
+'Mesh',
+'Star'
+),
+(
+'cn',
+'What is the default port number of HTTP?',
+'21',
+'25',
+'80',
+'443',
+'80'
+),
+(
+'cn',
+'Which protocol provides reliable communication?',
+'UDP',
+'TCP',
+'IP',
+'ARP',
+'TCP'
+),
+(
+'cn',
+'Which protocol is connectionless?',
+'TCP',
+'UDP',
+'FTP',
+'HTTP',
+'UDP'
+),
+(
+'cn',
+'What does DNS stand for?',
+'Domain Name System',
+'Data Network Service',
+'Digital Name Server',
+'Domain Network Service',
+'Domain Name System'
+),
+(
+'cn',
+'Which protocol is used to automatically assign IP addresses?',
+'ARP',
+'DHCP',
+'DNS',
+'ICMP',
+'DHCP'
+),
+(
+'cn',
+'Which command is used to test network connectivity?',
+'copy',
+'ping',
+'mkdir',
+'format',
+'ping'
+),
+(
+'cn',
+'Which address is used at the Data Link layer?',
+'IP Address',
+'MAC Address',
+'Port Number',
+'URL',
+'MAC Address'
+),
+(
+'cn',
+'Which OSI layer is responsible for encryption and decryption?',
+'Presentation Layer',
+'Application Layer',
+'Session Layer',
+'Transport Layer',
+'Presentation Layer'
+),
+(
+'cn',
+'Which topology provides the highest reliability because every node is connected to every other node?',
+'Bus',
+'Ring',
+'Star',
+'Mesh',
+'Mesh'
+);
+
+
+
+DBConnection.java
+Main.java
+WelcomeScreen.java
+UserDAO.java
+QuestionLoader.java
+Question.java
+QuizGUI.java
+ResultGUI.java
+ScoreDAO.java
+
+
+
+Java Quiz Application
+
+Developed a desktop-based Quiz Application using Java Swing and JDBC.
+Implemented user registration, multiple quiz categories, randomized questions, score calculation, and result evaluation.
+Integrated MySQL database to manage users, questions, and quiz scores.
+Applied Object-Oriented Programming principles and DAO architecture for modular and maintainable code.
+
+Technologies: Java, Swing, JDBC, MySQL, SQL, OOP
