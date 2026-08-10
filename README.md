@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 📝 Quiz Application
 
 A desktop-based Quiz Application developed using Java Swing and MySQL.
@@ -39,14 +39,11 @@ QuizApplication/
 │   ├── Question.java
 │   ├── QuestionLoader.java
 │   ├── DBConnection.java
-│   ├── UserDAO.java
+│   ├── UserDAO.java 
 │   └── ScoreDAO.java
 │
 ├── lib/
 ├── DBstruct.txt
 ├── .gitignore
 └── README.md
-=======
-# QuizApplication
-Java Swing Quiz Application with MySQL
->>>>>>> dfb235d76ce60241575a218f3ebebdc950ce63d8
+
